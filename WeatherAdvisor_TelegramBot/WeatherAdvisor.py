@@ -2,9 +2,14 @@ from telebot import TeleBot
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 import credentials
 import requests
+import datetime
 
 TOKEN = f"{credentials.TOKEN}"
 API_KEY = f"{credentials.WEATHER_API_KEY}"
+
+TODAY = datetime.date.today()
+TOMORROW = TODAY + datetime.timedelta(days=1)
+DAY_AFTER_TOMORROW = TODAY + datetime.timedelta(days=2)
 
 CITY_NAME_TO_CHOOSE = {
     "London": "London,UK",
@@ -13,9 +18,9 @@ CITY_NAME_TO_CHOOSE = {
 }
 
 DATE_TO_CHOOSE = {
-    "Today": "2025-07-28",
-    "Tomorrow": "2025-07-29",
-    "The day after tomorrow": "2025-07-30"
+    "Today": f"{TODAY}",
+    "Tomorrow": f"{TOMORROW}",
+    "The day after tomorrow": f"{DAY_AFTER_TOMORROW}"
 }
 
 user_city_map = {}
